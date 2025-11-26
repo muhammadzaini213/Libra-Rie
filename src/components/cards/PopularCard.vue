@@ -23,6 +23,8 @@ const props = defineProps({
             class="bg-secondary border-secondary py-4 rounded-3xl text-xl xl:text-3xl font-medium font-montserrat text-quaternary">Buy
             Now!</button>
 
-            <LineBreak/>
+        <div class="xl:hidden">
+            <LineBreak />
+        </div>
     </div>
 </template>

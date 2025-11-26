@@ -19,7 +19,8 @@ const props = defineProps({
         <button
             class="bg-secondary border-secondary py-6 rounded-3xl text-3xl font-medium font-montserrat text-quaternary">Find
             Books</button>
-        <LineBreak />
-
+        <div class="xl:hidden">
+            <LineBreak />
+        </div>
     </div>
 </template>
