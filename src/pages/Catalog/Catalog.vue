@@ -100,7 +100,7 @@ const filterBadge = computed(() => filterCategory.value.length);
 
 <template>
     <section class="flex flex-col gap-y-20 py-10">
-        <h1 class="font-playfair text-secondary text-8xl text-center">Catalog</h1>
+        <h1 class="font-playfair text-center text-secondary text-3xl lg:text-5xl xl:text-8xl mt-10">Catalog</h1>
 
         <div class="flex flex-wrap gap-x-8 justify-center relative">
             <SearchInput v-model="search" placeholder="Search..." />

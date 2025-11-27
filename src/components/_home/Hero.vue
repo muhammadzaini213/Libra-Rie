@@ -4,10 +4,10 @@ import LineBreak from '../LineBreak.vue';
 
 </script>
 <template>
-    <section class="flex flex-row justify-center min-h-screen xl:min-h-[70rem] items-center">
-        <div class="flex flex-col gap-y-6 xl:gap-y-32 items-center xl:items-start">
+    <section class="flex flex-row justify-center xl:justify-between min-h-screen xl:min-h-[70rem] items-center">
+        <div class="flex flex-col gap-y-14 xl:gap-y-32 items-center xl:items-start">
             <div
-                class="flex flex-col font-playfair text-center 2xl:text-left text-secondary text-lg 2xl:text-8xl gap-y-0 xl:gap-y-10">
+                class="flex flex-col font-playfair text-center xl:text-left text-secondary text-xl lg:text-4xl xl:text-7xl gap-y-2 xl:gap-y-10">
                 <h1>Discover Thousands of Books</h1>
                 <h1>Gain Unlimited Knowlege</h1>
             </div>
@@ -16,7 +16,7 @@ import LineBreak from '../LineBreak.vue';
 
 
             <div
-                class="flex flex-col font-montserrat text-center 2xl:text-left text-md 2xl:text-4xl font-extralight italic gap-y-2 xl:gap-y-8">
+                class="flex flex-col font-montserrat text-center xl:text-left text-xl xl:text-4xl font-extralight italic gap-y-2 xl:gap-y-8">
                 <p>“Think before you speak. Read before you
                     think”
                 </p>

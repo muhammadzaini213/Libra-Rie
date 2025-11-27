@@ -3,7 +3,7 @@
 <template>
     <footer class="flex flex-col bg-secondary text-quaternary px-16 xl:px-32 pt-32 pb-10 text-lg xl:text-2xl font-light">
 
-        <div class="flex flex-wrap gap-x-64 gap-y-24">
+        <div class="flex flex-col xl:flex-row gap-x-64 gap-y-24">
 
             <img class="w-24 xl:w-64 aspect-square" src="@/assets/icon.png" />
 
