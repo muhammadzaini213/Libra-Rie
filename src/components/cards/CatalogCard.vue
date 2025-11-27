@@ -11,7 +11,15 @@ const props = defineProps({
     price: Number,
     desc: String,
 });
+
+const emit = defineEmits(["buy"])
+
+function buyNow(event) {
+    event.stopPropagation()
+    emit("buy")
+}
 </script>
+
 
 <template>
     <div class="flex flex-col border-4 border-secondary rounded-3xl 
@@ -42,17 +50,15 @@ const props = defineProps({
         <div class="flex-grow"></div>
 
         <div class="flex w-full gap-4 mt-4">
-            <a :href="`/details/${props.id}`"
-                class="text-center flex-1 bg-transparent border-secondary border-4 py-4 rounded-3xl 
-                       text-3xl font-medium font-montserrat text-secondary">
+            <a :href="`/details/${props.id}`" class="text-center flex-1 bg-transparent border-secondary border-4 py-4 rounded-3xl 
+               text-3xl font-medium font-montserrat text-secondary">
                 Details
             </a>
 
-            <a :href="`/details/${props.id}`"
-                class="flex-1 bg-secondary border-secondary py-4 rounded-3xl 
-                       text-3xl font-medium font-montserrat text-quaternary text-center">
+            <button @click="buyNow" class="flex-1 bg-secondary border-secondary py-4 rounded-3xl 
+               text-3xl font-medium font-montserrat text-quaternary text-center">
                 Buy Now!
-            </a>
+            </button>
         </div>
     </div>
 </template>

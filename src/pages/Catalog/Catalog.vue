@@ -2,11 +2,24 @@
 import { ref, computed } from "vue";
 import IconButton from "@/components/buttons/IconButton.vue";
 import CatalogCard from "@/components/cards/CatalogCard.vue";
-import TextInput from "@/components/input/TextInput.vue";
 import LineBreak from "@/components/LineBreak.vue";
 import { catalogBooks } from "@/data/catalogData";
 
 import { onMounted, onBeforeUnmount } from "vue";
+import SearchInput from "@/components/input/SearchInput.vue";
+
+import Modal from "@/components/Modal.vue"
+import SortDropdown from "@/components/dropdown/SortDropdown.vue";
+import FilterDropdown from "@/components/dropdown/FilterDropdown.vue";
+
+const showCheckout = ref(false)
+const selectedBook = ref(null)
+
+const openCheckout = (book) => {
+    selectedBook.value = book
+    showCheckout.value = true
+}
+
 
 const filterRef = ref(null);
 const sortRef = ref(null);
@@ -84,80 +97,37 @@ const filteredBooks = computed(() => {
 const filterBadge = computed(() => filterCategory.value.length);
 </script>
 
+
 <template>
     <section class="flex flex-col gap-y-20 py-10">
         <h1 class="font-playfair text-secondary text-8xl text-center">Catalog</h1>
 
         <div class="flex flex-wrap gap-x-8 justify-center relative">
+            <SearchInput v-model="search" placeholder="Search..." />
 
-            <TextInput v-model="search" placeholder="Search..." />
-
-
-            <div class="relative flex items-center" ref="sortRef">
-                <div @click="showSort = !showSort; showFilter = false;" class="h-full flex items-center">
+            <SortDropdown v-model:sortOption="sortOption">
+                <template #button>
                     <IconButton icon="pi pi-sort-amount-up" badge="0" />
-                </div>
+                </template>
+            </SortDropdown>
 
-                <div v-if="showSort"
-                    class="absolute z-50 mt-2 bg-quaternary border-2 border-secondary rounded-xl p-4 flex flex-col gap-3 text-xl shadow-md">
-
-                    <button @click="sortOption = 'az'; showSort = false" class="text-left hover:underline">
-                        Title: A → Z
-                    </button>
-
-                    <button @click="sortOption = 'za'; showSort = false" class="text-left hover:underline">
-                        Title: Z → A
-                    </button>
-
-                    <button @click="sortOption = 'priceLow'; showSort = false" class="text-left hover:underline">
-                        Price: Low → High
-                    </button>
-
-                    <button @click="sortOption = 'priceHigh'; showSort = false" class="text-left hover:underline">
-                        Price: High → Low
-                    </button>
-
-                    <button @click="sortOption = 'yearNew'; showSort = false" class="text-left hover:underline">
-                        Year: Newest
-                    </button>
-
-                    <button @click="sortOption = 'yearOld'; showSort = false" class="text-left hover:underline">
-                        Year: Oldest
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="relative flex items-center" ref="filterRef">
-                <div @click="showFilter = !showFilter; showSort = false;" class="h-full flex items-center">
+            <FilterDropdown :categories="categories" v-model="filterCategory">
+                <template #button>
                     <IconButton icon="pi pi-filter" :badge="filterBadge" />
-                </div>
-
-                <div v-if="showFilter" class="absolute z-50 mt-2 bg-quaternary border-2 border-secondary rounded-xl p-4 
-           flex flex-col gap-3 text-xl shadow-md whitespace-nowrap
-           max-h-64 overflow-y-auto">
-
-                    <button @click="filterCategory = []; showFilter = false" class="text-left hover:underline">
-                        Clear Filters
-                    </button>
-
-                    <div v-for="cat in categories" :key="cat" class="flex items-center gap-3">
-                        <input type="checkbox" :value="cat" v-model="filterCategory" class="w-5 h-5 accent-secondary">
-                        <label>{{ cat }}</label>
-                    </div>
-                </div>
-            </div>
-
-
+                </template>
+            </FilterDropdown>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 justify-items-center">
-            <CatalogCard v-for="catalogBook in filteredBooks" :key="catalogBook.id" v-bind="catalogBook" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mx-32 justify-items-center">
+            <CatalogCard v-for="catalogBook in filteredBooks" :key="catalogBook.id" v-bind="catalogBook"
+                @buy="openCheckout(catalogBook)" />
         </div>
 
         <a class="font-semibold text-3xl underline text-center cursor-pointer" @click="loadMore">
             More Books
         </a>
+
+        <Modal v-if="selectedBook" :show="showCheckout" :img="selectedBook.imgUrl" @close="showCheckout = false" />
     </section>
 
     <LineBreak />
