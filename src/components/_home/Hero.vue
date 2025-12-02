@@ -24,8 +24,8 @@ import LineBreak from '../LineBreak.vue';
             </div>
 
             <div class="flex flex-col gap-y-5 xl:gap-y-10 items-center xl:items-start">
-                <Button text="Find Newest Books" badge="6" href="google.com" />
-                <Button text="Our Books" badge="6" href="google.com" />
+                <Button text="Find Newest Books" badge="6" href="/Catalog" />
+                <Button text="Our Events" badge="6" href="/Events" />
             </div>
         </div>
 

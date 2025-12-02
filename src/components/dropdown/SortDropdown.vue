@@ -44,7 +44,7 @@ const selectOption = (value) => {
       <slot name="button" />
     </div>
 
-    <div v-if="showSort" class="absolute z-50 mt-2 bg-quaternary border-2 border-secondary rounded-xl p-4 flex flex-col gap-3 text-xl shadow-md">
+    <div v-if="showSort" class="absolute z-50 mt-2 bg-quaternary border-2 border-secondary rounded-xl p-4 flex flex-col gap-3 text-xs lg:text-base shadow-md w-32 xl:w-52">
       <button
         v-for="opt in options"
         :key="opt.value"

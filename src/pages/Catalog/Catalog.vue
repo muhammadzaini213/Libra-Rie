@@ -99,17 +99,19 @@ const filterBadge = computed(() => filterCategory.value.length);
 
 
 <template>
-    <section class="flex flex-col gap-y-20 py-10">
+    <section class="flex flex-col gap-y-10 lg:gap-y-20 py-10">
         <h1 class="font-playfair text-center text-secondary text-3xl lg:text-5xl xl:text-8xl mt-10">Catalog</h1>
 
-        <div class="flex flex-wrap gap-x-8 justify-center relative">
-            <SearchInput v-model="search" placeholder="Search..." />
+        <!-- Desktop -->
+        <div class="hidden xl:flex flex-wrap gap-x-8 justify-center items-center relative">
 
             <SortDropdown v-model:sortOption="sortOption">
                 <template #button>
                     <IconButton icon="pi pi-sort-amount-up" badge="0" />
                 </template>
             </SortDropdown>
+
+            <SearchInput v-model="search" placeholder="Search..." />
 
             <FilterDropdown :categories="categories" v-model="filterCategory">
                 <template #button>
@@ -118,12 +120,32 @@ const filterBadge = computed(() => filterCategory.value.length);
             </FilterDropdown>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mx-32 justify-items-center">
+        <!-- Mobile -->
+        <div class="flex flex-col xl:hidden gap-x-8 justify-center items-center relative gap-y-5">
+
+            <SearchInput v-model="search" placeholder="Search..." />
+
+            <div class="flex flex-row justify-around w-full">
+                <SortDropdown v-model:sortOption="sortOption">
+                    <template #button>
+                        <IconButton icon="pi pi-sort-amount-up" badge="0" />
+                    </template>
+                </SortDropdown>
+                <FilterDropdown :categories="categories" v-model="filterCategory">
+                    <template #button>
+                        <IconButton icon="pi pi-filter" :badge="filterBadge" />
+                    </template>
+                </FilterDropdown>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mx-5 lg:mx-16 xl:mx-24 justify-items-center">
             <CatalogCard v-for="catalogBook in filteredBooks" :key="catalogBook.id" v-bind="catalogBook"
                 @buy="openCheckout(catalogBook)" />
         </div>
 
-        <a class="font-semibold text-3xl underline text-center cursor-pointer" @click="loadMore">
+        <a class="font-semibold text-xl xl:text-3xl underline text-center cursor-pointer" @click="loadMore">
             More Books
         </a>
 

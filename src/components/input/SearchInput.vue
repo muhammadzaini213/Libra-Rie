@@ -15,15 +15,15 @@ function handleInput(e) {
 
 <template>
   <div
-    class="flex flex-row border-secondary border-4 py-4 rounded-full px-10 text-3xl font-thin font-montserrat text-secondary w-fit gap-w-8">
+    class="flex flex-row border-secondary border-4 py-4 rounded-full px-10 items-center text-xl xl:text-3xl font-thin font-montserrat text-secondary w-fit gap-w-8">
     
     <input
-      class="appearance-none bg-transparent border-none outline-none focus:outline-none focus:ring-0"
+      class="appearance-none bg-transparent border-none outline-none focus:outline-none focus:ring-0 max-w-[10rem] xl:max-w-[30rem]"
       :placeholder="placeholder"
       :value="modelValue"
       @input="handleInput"
     />
 
-    <i class="ml-5 pi pi-search text-[2.5rem]"></i>
+    <i class="ml-5 pi pi-search text-[1.5rem] xl:text-[2.5rem]"></i>
   </div>
 </template>
