@@ -16,9 +16,10 @@ const props = defineProps({
         </div>
         <img class="h-[20] xl:h-[25rem]" :src="props.src"></img>
 
-        <button
+        <a
+        href="/Catalog"
             class="bg-secondary border-secondary py-6 rounded-3xl text-3xl font-medium font-montserrat text-quaternary">Find
-            Books</button>
+            Books</a>
         <div class="xl:hidden">
             <LineBreak />
         </div>

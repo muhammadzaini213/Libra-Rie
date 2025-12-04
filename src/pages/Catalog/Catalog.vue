@@ -25,11 +25,9 @@ const filterRef = ref(null);
 const sortRef = ref(null);
 
 const handleClickOutside = (e) => {
-    // kalau klik di luar filter dropdown dan di luar tombol filter → tutup
     if (filterRef.value && !filterRef.value.contains(e.target)) {
         showFilter.value = false;
     }
-    // kalau klik di luar sort dropdown dan di luar tombol sort → tutup
     if (sortRef.value && !sortRef.value.contains(e.target)) {
         showSort.value = false;
     }
@@ -44,13 +42,11 @@ onBeforeUnmount(() => {
 
 const search = ref("");
 
-// dropdown visibility
 const showSort = ref(false);
 const showFilter = ref(false);
 
 const sortOption = ref("az");
 
-// sekarang array
 const filterCategory = ref([]);
 
 const visibleCount = ref(8);
@@ -140,7 +136,7 @@ const filterBadge = computed(() => filterCategory.value.length);
 
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mx-5 lg:mx-16 xl:mx-24 justify-items-center">
+        <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-16 mx-5 lg:mx-16 justify-items-center">
             <CatalogCard v-for="catalogBook in filteredBooks" :key="catalogBook.id" v-bind="catalogBook"
                 @buy="openCheckout(catalogBook)" />
         </div>

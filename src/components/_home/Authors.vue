@@ -12,7 +12,7 @@ import { topAuthors } from '@/data/topAuthors.js';
         Top Authors
       </h1>
 
-      <div class="flex flex-wrap w-screen justify-center xl:justify-between items-center px-16 xl:px-64">
+      <div class="flex flex-col xl:flex-row w-screen justify-center xl:justify-between items-center px-16 xl:px-64">
 
         <TopAuthorsCard
           v-for="(author, index) in topAuthors"

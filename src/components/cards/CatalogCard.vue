@@ -26,15 +26,15 @@ function buyNow(event) {
     <div class="hidden lg:flex flex-col border-4 border-secondary rounded-3xl 
                 w-full h-full p-10 gap-y-6">
 
-        <div class="flex flex-row gap-x-14">
-            <img :src="props.imgUrl" class="h-96 object-cover">
+        <div class="flex flex-wrap 2xl:flex-nowrap 2xl:flex-row gap-x-14 gap-y-10">
+            <img :src="props.imgUrl" class="h-64 3xl:h-96 object-cover">
 
-            <div class="flex flex-col justify-around">
-                <p class="font-playfair text-3xl">{{ props.title }}</p>
-                <p class="italic text-3xl font-extralight">by {{ props.author }}</p>
-                <p class="italic text-3xl font-extralight">{{ props.year }}</p>
+            <div class="flex flex-col gap-y-6 justify-around">
+                <p class="font-playfair text-xl 2xl:text-3xl">{{ props.title }}</p>
+                <p class="italic text-xl 2xl:text-3xl font-extralight">by {{ props.author }}</p>
+                <p class="italic text-xl 2xl:text-3xl font-extralight">{{ props.year }}</p>
 
-                <p class="italic text-3xl font-extralight">
+                <p class="italic text-xl 2xl:text-3xl font-extralight">
                     {{ props.tags?.join(", ") }}
                 </p>
 

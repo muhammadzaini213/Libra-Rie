@@ -3,9 +3,17 @@ import LineBreak from '../LineBreak.vue';
 
 
 const props = defineProps({
+    id: Number,
     title: String,
-    src: String,
+    imgUrl: String,
 });
+
+const emit = defineEmits(["buy"])
+
+function buyNow(event) {
+    event.stopPropagation()
+    emit("buy")
+}
 
 </script>
 
@@ -15,11 +23,12 @@ const props = defineProps({
         <div class="h-16 flex items-center justify-center">
             <h3 class="text-center text-secondary underline font-playfair text-xl xl:text-3xl">{{ props.title }}</h3>
         </div>
-        <img class="h[-20rem] xl:h-[35rem]" :src="props.src"></img>
+        <img class="h[-20rem] xl:h-[35rem]" :src="props.imgUrl"></img>
 
-        <button
-            class="bg-transparent border-secondary border-4 py-4 rounded-3xl text-xl xl:text-3xl font-medium font-montserrat text-secondary">Details</button>
-        <button
+        <a :href="`/details/${props.id}`"
+            class="bg-transparent border-secondary border-4 py-4 rounded-3xl text-xl xl:text-3xl font-medium font-montserrat text-secondary">Details</a>
+
+        <button @click="buyNow"
             class="bg-secondary border-secondary py-4 rounded-3xl text-xl xl:text-3xl font-medium font-montserrat text-quaternary">Buy
             Now!</button>
 

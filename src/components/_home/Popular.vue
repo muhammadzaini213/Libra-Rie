@@ -1,8 +1,26 @@
 <script setup>
+import { catalogBooks } from '@/data/catalogData';
 import LineBreak from '../LineBreak.vue';
 import PopularCard from '../cards/PopularCard.vue';
-import { popularBooks } from '@/data/popularBooks.js';
+import Modal from '../Modal.vue';
+import { ref } from 'vue';
+
+function getRandomBooks(count = 4) {
+  const shuffled = [...catalogBooks].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
+const popularBooks = ref(getRandomBooks());
+
+const showCheckout = ref(false);
+const selectedBook = ref(null);
+
+function openCheckout(book) {
+  selectedBook.value = book;
+  showCheckout.value = true;
+}
 </script>
+
 
 <template>
   <section class="flex flex-row justify-center min-h-[70rem] items-center py-24">
@@ -12,17 +30,25 @@ import { popularBooks } from '@/data/popularBooks.js';
         Popular Books
       </h1>
 
-      <div class="flex flex-wrap w-screen justify-center xl:justify-between items-center px-16 xl:px-64">
+      <div class="flex flex-col gap-x-5 xl:flex-row w-screen justify-center xl:justify-between items-center px-16 xl:px-64">
 
-        <PopularCard
-          v-for="(book, index) in popularBooks"
+        <PopularCard 
+          v-for="(book, index) in popularBooks" 
           :key="index"
+          :id="book.id"
           :title="book.title"
-          :src="book.src"
+          :imgUrl="book.imgUrl"
+          @buy="openCheckout(book)" 
         />
-
       </div>
     </div>
+
+    <Modal 
+      v-if="selectedBook" 
+      :show="showCheckout" 
+      :img="selectedBook.imgUrl"
+      @close="showCheckout = false"
+    />
   </section>
 
   <LineBreak />

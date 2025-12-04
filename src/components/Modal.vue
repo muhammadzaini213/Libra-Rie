@@ -10,35 +10,48 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-// Qty
 const qty = ref(1)
+const name = ref('')
+const address = ref('')
+const cardNumber = ref('')
 
-function decreaseQty() {
-    if (qty.value > 1) qty.value--
+const selectedPayment = ref(null)
+
+function selectPayment(method) {
+    selectedPayment.value = method
 }
+
 
 function increaseQty() {
     qty.value++
 }
 
-// Checkout button
-function getItem() {
-    alert("Purchase Successful!")
+function decreaseQty() {
+    if (qty.value > 1) qty.value--
 }
 
-// Close modal
+function getItem() {
+    // Validasi form
+    if (!name.value || !address.value || !cardNumber.value) {
+        alert('Please fill in all required fields.')
+        return
+    }
+
+    alert(`Purchase Successful! \nName: ${name.value}\nAddress: ${address.value}\nQty: ${qty.value}`)
+}
+
 function cancelCheckout() {
     emit('close')
 }
 </script>
 
 <template>
-
-    <div v-if="props.show"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    <div v-if="props.show" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
         @click.self="cancelCheckout">
 
-        <div class="bg-primary border-secondary border-4 rounded-3xl py-16 px-8 xl:px-32 max-h-screen xl:max-h-auto overflow-scroll">
+
+        <div
+            class="bg-primary border-secondary border-4 rounded-3xl py-16 px-8 xl:px-32 max-h-screen xl:max-h-auto overflow-scroll lg:overflow-hidden">
 
             <div class="flex flex-col gap-y-5">
                 <h1 class="font-playfair text-3xl xl:text-6xl underline text-center lg:text-left">Checkout</h1>
@@ -48,39 +61,46 @@ function cancelCheckout() {
 
                         <div>
                             <p class="font-montserrat text-md xl:text-xl font-semibold pb-2">Name</p>
-                            <TextInput placeholder="e.g John Doe" />
+                            <TextInput v-model="name" placeholder="e.g John Doe" />
                         </div>
 
                         <div>
                             <p class="font-montserrat text-md xl:text-xl font-semibold pb-2">Address</p>
-                            <TextInput placeholder="Random Road, Number xxxxx" />
+                            <TextInput v-model="address" placeholder="Random Road, Number xxxxx" />
                         </div>
 
                         <div>
                             <p class="font-montserrat text-md xl:text-xl font-semibold pb-2">Payment Methods</p>
                             <div class="flex flex-row gap-x-10">
-                                <PaymentButton img="/src/assets/payment/paypal.png" />
-                                <PaymentButton img="/src/assets/payment/mastercard.png" />
-                                <PaymentButton img="/src/assets/payment/visa.png" />
-                                <PaymentButton img="/src/assets/payment/worldpay.png" />
+                                <PaymentButton img="/src/assets/payment/paypal.png"
+                                    :selected="selectedPayment === 'paypal'" @select="selectPayment('paypal')" />
+
+                                <PaymentButton img="/src/assets/payment/mastercard.png"
+                                    :selected="selectedPayment === 'mastercard'"
+                                    @select="selectPayment('mastercard')" />
+
+                                <PaymentButton img="/src/assets/payment/visa.png" :selected="selectedPayment === 'visa'"
+                                    @select="selectPayment('visa')" />
+
+                                <PaymentButton img="/src/assets/payment/worldpay.png"
+                                    :selected="selectedPayment === 'worldpay'" @select="selectPayment('worldpay')" />
                             </div>
+
                         </div>
 
                         <div>
                             <p class="font-montserrat text-md xl:text-xl font-semibold pb-2">Card Number</p>
-                            <TextInput placeholder="03xxxxxx" />
+                            <TextInput v-model="cardNumber" placeholder="03xxxxxx" />
                         </div>
 
                         <div class="flex w-full gap-4 mt-4">
-                            <button @click="cancelCheckout"
-                                class="text-center flex-1 bg-transparent border-secondary border-4 py-4 rounded-3xl 
-                                       text-xl xl:text-3xl font-medium font-montserrat text-secondary">
+                            <button @click="cancelCheckout" class="text-center flex-1 bg-transparent border-secondary border-4 py-4 rounded-3xl 
+                                   text-xl xl:text-3xl font-medium font-montserrat text-secondary">
                                 Cancel
                             </button>
 
-                            <button @click="getItem"
-                                class="flex-1 bg-secondary border-secondary py-4 rounded-3xl 
-                                       text-xl xl:text-3xl font-medium font-montserrat text-quaternary text-center">
+                            <button @click="getItem" class="flex-1 bg-secondary border-secondary py-4 rounded-3xl 
+                                   text-xl xl:text-3xl font-medium font-montserrat text-quaternary text-center">
                                 Get
                             </button>
                         </div>
@@ -88,7 +108,7 @@ function cancelCheckout() {
                     </div>
 
                     <div class="flex flex-col justify-center items-center text-xl xl:text-3xl gap-y-0 xl:gap-y-5 mt-5">
-                        <img :src="props.img" class="w-32 xl:w-96"/>
+                        <img :src="props.img" class="w-32 xl:w-96" />
                         <p>Qty:</p>
                         <div class="flex flex-row gap-x-10 items-center text-2xl xl:text-5xl">
                             <button @click="decreaseQty" class="">-</button>
@@ -100,4 +120,6 @@ function cancelCheckout() {
             </div>
         </div>
     </div>
+
+
 </template>
