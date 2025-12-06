@@ -2,6 +2,11 @@
 import { defineProps, defineEmits, ref } from 'vue'
 import TextInput from './input/TextInput.vue'
 import PaymentButton from './buttons/PaymentButton.vue'
+import mastercard from "@/assets/payment/mastercard.png"
+import paypal from "@/assets/payment/paypal.png"
+import visa from "@/assets/payment/visa.png"
+import worldpay from "@/assets/payment/worldpay.png"
+
 
 const props = defineProps({
     img: String,
@@ -72,17 +77,17 @@ function cancelCheckout() {
                         <div>
                             <p class="font-montserrat text-md xl:text-xl font-semibold pb-2">Payment Methods</p>
                             <div class="flex flex-row gap-x-10">
-                                <PaymentButton img="/src/assets/payment/paypal.png"
+                                <PaymentButton :img="paypal"
                                     :selected="selectedPayment === 'paypal'" @select="selectPayment('paypal')" />
 
-                                <PaymentButton img="/src/assets/payment/mastercard.png"
+                                <PaymentButton :img="mastercard"
                                     :selected="selectedPayment === 'mastercard'"
                                     @select="selectPayment('mastercard')" />
 
-                                <PaymentButton img="/src/assets/payment/visa.png" :selected="selectedPayment === 'visa'"
+                                <PaymentButton :img="visa" :selected="selectedPayment === 'visa'"
                                     @select="selectPayment('visa')" />
 
-                                <PaymentButton img="/src/assets/payment/worldpay.png"
+                                <PaymentButton :img="worldpay"
                                     :selected="selectedPayment === 'worldpay'" @select="selectPayment('worldpay')" />
                             </div>
 

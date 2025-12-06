@@ -24,7 +24,7 @@ const book = computed(() => catalogBooks.find(b => b.id === id));
             </div>
 
             <div class="flex flex-row w-full gap-4">
-                <a href="/Catalog" class="flex-1 text-center bg-transparent border-secondary border-4 py-4 
+                <a href="/catalog" class="flex-1 text-center bg-transparent border-secondary border-4 py-4 
                rounded-3xl text-2xl font-medium font-montserrat text-secondary">
                     Back
                 </a>
@@ -71,7 +71,7 @@ const book = computed(() => catalogBooks.find(b => b.id === id));
             </div>
 
             <div class="flex flex-row w-full gap-4 mt-5">
-                <a href="/Catalog" class="flex-1 text-center bg-transparent border-secondary border-4 py-4 
+                <a href="/catalog" class="flex-1 text-center bg-transparent border-secondary border-4 py-4 
                rounded-3xl text-md xl:text-xl font-medium font-montserrat text-secondary">
                     Back
                 </a>

@@ -24,14 +24,14 @@ import LineBreak from '../LineBreak.vue';
             </div>
 
             <div class="flex flex-col gap-y-5 xl:gap-y-10 items-center xl:items-start">
-                <Button text="Find Newest Books" badge="2" href="/Catalog" />
-                <Button text="Our Events" badge="5" href="/Events" />
+                <Button text="Find Newest Books" badge="2" href="/catalog" />
+                <Button text="Our Events" badge="5" href="/events" />
             </div>
         </div>
 
         <div class="flex-col gap-y-24 justify-center items-center pt-24 hidden 2xl:flex">
             <img class="w-[50rem]" src="@/assets/home/hero.png"></img>
-            <a href="/About" class="italic text-4xl font-extralight underline font-montserrat">What is this?</a>
+            <a href="/about" class="italic text-4xl font-extralight underline font-montserrat">What is this?</a>
         </div>
 
     </section>

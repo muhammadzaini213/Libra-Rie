@@ -1,8 +1,15 @@
+import book_1 from "@/assets/books/book_1.png";
+import book_2 from "@/assets/books/book_2.png";
+import book_3 from "@/assets/books/book_3.png";
+import book_4 from "@/assets/books/book_4.png"
+
+
+
 export const catalogBooks = [
   {
     id: 1,
     title: "How to Win Friends and Influence People",
-    imgUrl: "/assets/books/book_1.png",
+    imgUrl: book_1,
     author: "Dale Carnegie",
     year: 1936,
     tags: ["Self-help", "Communication", "Personal Growth"],
@@ -12,7 +19,7 @@ export const catalogBooks = [
   {
     id: 2,
     title: "Crime and Punishment",
-    imgUrl: "/assets/books/book_2.png",
+    imgUrl: book_2,
     author: "Fyodor Dostoevsky",
     year: 1866,
     tags: ["Classic", "Philosophy", "Psychology", "Russian Literature"],
@@ -22,7 +29,7 @@ export const catalogBooks = [
   {
     id: 3,
     title: "The Intelligent Investor",
-    imgUrl: "/assets/books/book_3.png",
+    imgUrl: book_3,
     author: "Benjamin Graham",
     year: 1949,
     tags: ["Finance", "Investment", "Economics"],
@@ -32,7 +39,7 @@ export const catalogBooks = [
   {
     id: 4,
     title: "Stoicism",
-    imgUrl: "/assets/books/book_4.png",
+    imgUrl: book_4,
     author: "Marcus Aurelius (Compilation)",
     year: 180,
     tags: ["Philosophy", "Stoicism", "Self-discipline"],
@@ -44,7 +51,7 @@ export const catalogBooks = [
   {
     id: 5,
     title: "Mastering Influence and Leadership",
-    imgUrl: "/assets/books/book_1.png",
+    imgUrl: book_1,
     author: "Dale Carnegie",
     year: 1940,
     tags: ["Self-help", "Leadership"],
@@ -54,7 +61,7 @@ export const catalogBooks = [
   {
     id: 6,
     title: "Moral Conflict and Redemption",
-    imgUrl: "/assets/books/book_2.png",
+    imgUrl: book_2,
     author: "Fyodor Dostoevsky",
     year: 1870,
     tags: ["Classic", "Psychological Fiction"],
@@ -64,7 +71,7 @@ export const catalogBooks = [
   {
     id: 7,
     title: "Value Investing Essentials",
-    imgUrl: "/assets/books/book_3.png",
+    imgUrl: book_3,
     author: "Benjamin Graham",
     year: 1955,
     tags: ["Finance", "Investment"],
@@ -74,7 +81,7 @@ export const catalogBooks = [
   {
     id: 8,
     title: "Daily Stoic Reflections",
-    imgUrl: "/assets/books/book_4.png",
+    imgUrl: book_4,
     author: "Marcus Aurelius",
     year: 175,
     tags: ["Philosophy", "Mindfulness"],
@@ -84,7 +91,7 @@ export const catalogBooks = [
   {
     id: 9,
     title: "Emotional Intelligence in Conversations",
-    imgUrl: "/assets/books/book_1.png",
+    imgUrl: book_1,
     author: "Dale Carnegie",
     year: 1945,
     tags: ["Self-help", "Communication"],
@@ -94,7 +101,7 @@ export const catalogBooks = [
   {
     id: 10,
     title: "Shadows of Guilt",
-    imgUrl: "/assets/books/book_2.png",
+    imgUrl: book_2,
     author: "Fyodor Dostoevsky",
     year: 1872,
     tags: ["Classic", "Drama"],
@@ -104,7 +111,7 @@ export const catalogBooks = [
   {
     id: 11,
     title: "Modern Investor's Handbook",
-    imgUrl: "/assets/books/book_3.png",
+    imgUrl: book_3,
     author: "Benjamin Graham",
     year: 1960,
     tags: ["Finance", "Business"],
@@ -114,7 +121,7 @@ export const catalogBooks = [
   {
     id: 12,
     title: "Wisdom of the Stoics",
-    imgUrl: "/assets/books/book_4.png",
+    imgUrl: book_4,
     author: "Marcus Aurelius",
     year: 200,
     tags: ["Philosophy", "Self-discipline"],
@@ -124,7 +131,7 @@ export const catalogBooks = [
   {
     id: 13,
     title: "Building Trust and Influence",
-    imgUrl: "/assets/books/book_1.png",
+    imgUrl: book_1,
     author: "Dale Carnegie",
     year: 1938,
     tags: ["Self-help", "Leadership"],
@@ -134,7 +141,7 @@ export const catalogBooks = [
   {
     id: 14,
     title: "The Burden of Conscience",
-    imgUrl: "/assets/books/book_2.png",
+    imgUrl: book_2,
     author: "Fyodor Dostoevsky",
     year: 1868,
     tags: ["Classic", "Psychology"],
@@ -144,7 +151,7 @@ export const catalogBooks = [
   {
     id: 15,
     title: "Investment Strategies for Beginners",
-    imgUrl: "/assets/books/book_3.png",
+    imgUrl: book_3,
     author: "Benjamin Graham",
     year: 1950,
     tags: ["Finance", "Investment"],
@@ -154,7 +161,7 @@ export const catalogBooks = [
   {
     id: 16,
     title: "The Stoic Path",
-    imgUrl: "/assets/books/book_4.png",
+    imgUrl: book_4,
     author: "Marcus Aurelius",
     year: 182,
     tags: ["Philosophy"],
@@ -164,7 +171,7 @@ export const catalogBooks = [
   {
     id: 17,
     title: "Speak With Confidence",
-    imgUrl: "/assets/books/book_1.png",
+    imgUrl: book_1,
     author: "Dale Carnegie",
     year: 1948,
     tags: ["Communication", "Public Speaking"],
@@ -174,7 +181,7 @@ export const catalogBooks = [
   {
     id: 18,
     title: "Voices of the Damned",
-    imgUrl: "/assets/books/book_2.png",
+    imgUrl: book_2,
     author: "Fyodor Dostoevsky",
     year: 1867,
     tags: ["Classic", "Dark Fiction"],
@@ -184,7 +191,7 @@ export const catalogBooks = [
   {
     id: 19,
     title: "Financial Wisdom for Life",
-    imgUrl: "/assets/books/book_3.png",
+    imgUrl: book_3,
     author: "Benjamin Graham",
     year: 1958,
     tags: ["Finance"],
@@ -194,7 +201,7 @@ export const catalogBooks = [
   {
     id: 20,
     title: "Stoic Lessons for Modern Living",
-    imgUrl: "/assets/books/book_4.png",
+    imgUrl: book_4,
     author: "Marcus Aurelius",
     year: 178,
     tags: ["Philosophy", "Mindfulness"],

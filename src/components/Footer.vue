@@ -9,9 +9,9 @@
 
             <div class="flex flex-col gap-y-8 underline">
                 <a href="/">Home</a>
-                <a href="/About">About</a>
-                <a href="/Catalog">Catalog</a>
-                <a href="/Events">Events</a>
+                <a href="/about">About</a>
+                <a href="/catalog">Catalog</a>
+                <a href="/events">Events</a>
             </div>
 
             <div class="flex flex-col gap-y-8 underline">

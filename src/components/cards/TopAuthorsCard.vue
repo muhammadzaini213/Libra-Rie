@@ -17,7 +17,7 @@ const props = defineProps({
         <img class="h-[20] xl:h-[25rem]" :src="props.src"></img>
 
         <a
-        href="/Catalog"
+        href="/catalog"
             class="bg-secondary border-secondary py-6 rounded-3xl text-3xl font-medium font-montserrat text-quaternary">Find
             Books</a>
         <div class="xl:hidden">

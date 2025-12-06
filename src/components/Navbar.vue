@@ -16,9 +16,9 @@ function closeMobileMenu() {
 
 const links = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/About" },
-    { name: "Catalog", path: "/Catalog" },
-    { name: "Events", path: "/Events" },
+    { name: "About", path: "/about" },
+    { name: "Catalog", path: "/catalog" },
+    { name: "Events", path: "/events" },
 ];
 </script>
 <template>
@@ -53,13 +53,13 @@ const links = [
                 class="fixed inset-0 z-0 bg-secondary flex flex-col items-center justify-start pt-24 text-xl lg:text-3xl font-montserrat font-light h-fit">
                 <a href="/" @click="closeMobileMenu" :class="route.path === '/' ? 'underline font-semibold' : ''"
                     class="w-full text-center py-5 border-b border-quaternary">Home</a>
-                <a href="/About" @click="closeMobileMenu"
+                <a href="/about" @click="closeMobileMenu"
                     :class="route.path === '/About' ? 'underline font-semibold' : ''"
                     class="w-full text-center py-5 border-b border-quaternary">About</a>
-                <a href="/Catalog" @click="closeMobileMenu"
+                <a href="/catalog" @click="closeMobileMenu"
                     :class="route.path === '/Catalog' ? 'underline font-semibold' : ''"
                     class="w-full text-center py-5 border-b border-quaternary">Catalog</a>
-                <a href="/Events" @click="closeMobileMenu"
+                <a href="/events" @click="closeMobileMenu"
                     :class="route.path === '/Events' ? 'underline font-semibold' : ''"
                     class="w-full text-center py-5 border-b border-quaternary">Events</a>
             </div>
