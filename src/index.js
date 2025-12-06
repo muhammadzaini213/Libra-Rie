@@ -8,15 +8,15 @@ import Events from './pages/Events/Events.vue'
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/About', component: About },
-  { path: "/Catalog", component: Catalog },
+  { path: '/about', component: About },
+  { path: "/catalog", component: Catalog },
   {
-    path: "/Details/:id",
+    path: "/details/:id",
     name: "Details",
     component: () => Details,
     props: true
   },
-  { path: "/Events", component: Events },
+  { path: "/events", component: Events },
 ]
 
 const router = createRouter({
