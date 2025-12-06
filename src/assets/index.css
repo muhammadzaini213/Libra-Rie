@@ -1,3 +1,8 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'Playfair Display';
   src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
@@ -59,7 +64,3 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
