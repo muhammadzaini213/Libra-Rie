@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 13px !important;
+}
+
 @font-face {
   font-family: 'Playfair Display';
   src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
@@ -57,10 +61,6 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-html {
-  font-size: 15px !important;
 }
 
 body {
