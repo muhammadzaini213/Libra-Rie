@@ -19,6 +19,7 @@ const links = [
     { name: "About", path: "/about" },
     { name: "Catalog", path: "/catalog" },
     { name: "Events", path: "/events" },
+    { name: "Creator", path: "/creator" },
 ];
 </script>
 <template>
@@ -42,12 +43,10 @@ const links = [
             </div>
         </div>
 
-        <!-- Mobile burger -->
         <button class="lg:hidden z-10" @click="toggleMobileMenu">
             <font-awesome-icon icon="bars" class="text-2xl lg:text-4xl" />
         </button>
 
-        <!-- Mobile menu overlay -->
         <transition name="fade">
             <div v-if="mobileMenuOpen"
                 class="fixed inset-0 z-0 bg-secondary flex flex-col items-center justify-start pt-24 text-xl lg:text-3xl font-montserrat font-light h-fit">

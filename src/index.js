@@ -4,6 +4,7 @@ import About from './pages/About/About.vue'
 import Catalog from './pages/Catalog/Catalog.vue'
 import Details from './pages/Details/Details.vue'
 import Events from './pages/Events/Events.vue'
+import Creator from './pages/Creator/Creator.vue'
 
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
     props: true
   },
   { path: "/events", component: Events },
+  { path: "/creator", component: Creator }
 ]
 
 const router = createRouter({
